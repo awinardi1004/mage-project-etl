@@ -3,36 +3,36 @@ blocks:
   color: null
   configuration: {}
   downstream_blocks:
-  - transform
+  - transform_2
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
-  name: from_local_file
+  name: load_lf
   retry_config: null
   status: executed
   timeout: null
   type: data_loader
   upstream_blocks: []
-  uuid: from_local_file
+  uuid: load_lf
 - all_upstream_blocks_executed: true
   color: null
   configuration: {}
   downstream_blocks:
-  - postgre
+  - exporter_to_pg
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
-  name: Transform
+  name: Transform_2
   retry_config: null
   status: updated
   timeout: null
   type: transformer
   upstream_blocks:
-  - from_local_file
-  uuid: transform
-- all_upstream_blocks_executed: true
+  - load_lf
+  uuid: transform_2
+- all_upstream_blocks_executed: false
   color: null
   configuration: {}
   downstream_blocks: []
@@ -40,26 +40,26 @@ blocks:
   executor_type: local_python
   has_callback: false
   language: python
-  name: postgre
+  name: exporter_to_PG
   retry_config: null
   status: executed
   timeout: null
   type: data_exporter
   upstream_blocks:
-  - transform
-  uuid: postgre
+  - transform_2
+  uuid: exporter_to_pg
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}
 conditionals: []
-created_at: '2024-07-22 03:12:04.108117+00:00'
+created_at: '2024-07-23 03:11:08.968147+00:00'
 data_integration: null
 description: null
 executor_config: {}
 executor_count: 1
 executor_type: null
 extensions: {}
-name: etl-project
+name: etl_project_2
 notification_config: {}
 remote_variables_dir: null
 retry_config: {}
@@ -69,6 +69,6 @@ settings:
 spark_config: {}
 tags: []
 type: python
-uuid: etl_project
+uuid: etl_project_2
 variables_dir: /home/src/mage_data/my-magic-project
 widgets: []
