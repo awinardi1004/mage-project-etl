@@ -1,38 +1,44 @@
 blocks:
 - all_upstream_blocks_executed: true
   color: null
-  configuration: {}
+  configuration:
+    file_path: data_loaders/load_from_local_file.py
+    file_source:
+      path: data_loaders/load_from_local_file.py
   downstream_blocks:
-  - transform_2
+  - transform_
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
-  name: load_lf
+  name: load_from_local_file
   retry_config: null
   status: executed
   timeout: null
   type: data_loader
   upstream_blocks: []
-  uuid: load_lf
+  uuid: load_from_local_file
 - all_upstream_blocks_executed: true
   color: null
-  configuration: {}
+  configuration:
+    file_path: transformers/transform_.py
+    file_source:
+      path: transformers/transform_.py
   downstream_blocks:
   - exporter_to_pg
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
-  name: Transform_2
+  name: Transform_
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: transformer
   upstream_blocks:
-  - load_lf
-  uuid: transform_2
-- all_upstream_blocks_executed: false
+  - load_from_local_file
+  uuid: transform_
+- all_upstream_blocks_executed: true
   color: null
   configuration: {}
   downstream_blocks: []
@@ -46,7 +52,7 @@ blocks:
   timeout: null
   type: data_exporter
   upstream_blocks:
-  - transform_2
+  - transform_
   uuid: exporter_to_pg
 cache_block_output_in_memory: false
 callbacks: []

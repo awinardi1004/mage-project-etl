@@ -76,8 +76,11 @@ def transform(data, *args, **kwargs):
     df_final['disc_value'] = df_final['disc_value'].fillna(0)
     df_final['max_disc'] = df_final['max_disc'].fillna(0)
 
+    # create amount column
+    df_final['amount'] = df_final['price'] * df_final['quantity']
+
     # Removed unnecessary columns
-    df_final = df_final[['order_id', 'sales_date', 'menu_id', 'name', 'quantity', 'price', 'cogs', 'disc_value', 'max_disc']]
+    df_final = df_final[['order_id', 'sales_date', 'menu_id', 'name', 'quantity', 'price', 'amount' , 'cogs', 'disc_value', 'max_disc']]
 
 
     return df_final
