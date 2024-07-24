@@ -35,4 +35,4 @@ Once the data pipeline is established, you can define various processes and stag
 To script the data loader in Python, click on [loader.py](scripts/loader.py). For the Python Transformer scripts, open [transform.py](scripts/transform.py), and for the Data Exporter scripts, select [exporter.py](scripts/exporter.py).
 
 ## Sales Report
-
+visualization created using looker studio. you can see it [here](hhttps://lookerstudio.google.com/s/utn72bqtyLM)
