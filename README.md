@@ -32,6 +32,7 @@ Once you open the Mage UI, you can quickly create a Data Pipeline for either Bat
 
 Once the data pipeline is established, you can define various processes and stages. In this project, I set up three key components: Data Loader, Transformer, and Data Exporter.
 ![date_pipeline_mage](assets/Edit_pipeline.PNG)
+To script the data loader in Python, click on [loader.py](scripts/loader.py). For the Python Transformer scripts, open [transform.py](scripts/transform.py), and for the Data Exporter scripts, select [exporter.py](scripts/exporter.py).
 
 ## Sales Report
 
