@@ -27,6 +27,11 @@ docker compose up
 Next, open your browser and go to http://localhost:6789. You're all set to begin the course.
 
 ## Create Data Pipeline
+Once you open the Mage UI, you can quickly create a Data Pipeline for either Batch or Streaming data processing.
+![mage_ui](assets/create_pipeline.png)
+
+Once the data pipeline is established, you can define various processes and stages. In this project, I set up three key components: Data Loader, Transformer, and Data Exporter.
+![date_pipeline_mage](assets/Edit_pipeline.PNG)
 
 ## Sales Report
 
