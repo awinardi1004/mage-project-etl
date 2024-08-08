@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: fact_sales
+    descrition: "All about sales"
+    columns:
+    - name: order_id
+      test:
+      - not_null
+      - unique
+
+  - name: fact_product_sales
+    descrition: "All about sales"
+    columns:
+    - name: order_id
+      test:
+      - not_null

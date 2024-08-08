@@ -1,9 +1,13 @@
 # https://docs.getdbt.com/docs/core/connect-data-platform/profiles.yml
 
-base:
-  outputs:
-
-    dev:
-      type: duckdb
-
+demo:
   target: dev
+  outputs:
+    dev:
+      dbname: postgres
+      host: postgres
+      password: postgres
+      port: 5432
+      schema: staging
+      type: postgres
+      user: postgres

@@ -1,0 +1,28 @@
+sources:
+- description: Dataframes Mage upstream blocks
+  loader: mage
+  name: mage_demo
+  schema: staging
+  tables:
+  - description: Dataframe for block `menu_export` of the `project_pipeline` mage
+      pipeline.
+    identifier: mage_project_pipeline_menu_export
+    meta:
+      block_uuid: menu_export
+      pipeline_uuid: project_pipeline
+    name: project_pipeline_menu_export
+  - description: Dataframe for block `orders_exporter` of the `project_pipeline` mage
+      pipeline.
+    identifier: mage_project_pipeline_orders_exporter
+    meta:
+      block_uuid: orders_exporter
+      pipeline_uuid: project_pipeline
+    name: project_pipeline_orders_exporter
+  - description: Dataframe for block `promotions_export` of the `project_pipeline`
+      mage pipeline.
+    identifier: mage_project_pipeline_promotions_export
+    meta:
+      block_uuid: promotions_export
+      pipeline_uuid: project_pipeline
+    name: project_pipeline_promotions_export
+version: 2

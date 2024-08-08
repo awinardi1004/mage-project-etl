@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: sales_financial_summary
+    descrition: "All about sales finacial summary"
+    columns:
+    - name: order_id
+      test:
+      - not_null
+      - unique
+  
+  - name: product_sales_summary
+    descrition: "All about product sales summary"
+    columns:
+    - name: order_id
+      test:
+      - not_nul
