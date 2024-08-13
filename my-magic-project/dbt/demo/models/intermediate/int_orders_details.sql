@@ -1,21 +1,30 @@
-WITH combined AS (
-    SELECT orders.*, m.effective_date, m.menu_name AS menu_name, m.price, m.cogs
-    FROM {{ source('staging', 'stg_orders') }} AS orders
-    LEFT JOIN {{ source('staging', 'stg_menu') }} AS m ON orders.menu_id = m.menu_id
+{{ config(
+    materialized='incremental',
+    schema='intermediate',
+    unique_key=['order_id', 'menu_id']
+) }}
+
+with combined as (
+    select orders.*, m.effective_date, m.menu_name as menu_name, m.price, m.cogs
+    from {{ source('staging', 'stg_orders') }} as orders
+    left join {{ source('staging', 'stg_menu') }} as m on orders.menu_id = m.menu_id
 ),
 
-filtered AS (
-    SELECT *
-    FROM combined
-    WHERE sales_date >= effective_date
+filtered as (
+    select *
+    from combined
+    where sales_date >= effective_date
 ),
 
-latest_prices AS (
-    SELECT DISTINCT ON (order_id, menu_id) order_id, menu_id, menu_name, price, cogs
-    FROM filtered
-    ORDER BY order_id, menu_id, effective_date DESC
+latest_prices as (
+    select distinct on (order_id, menu_id) order_id, menu_id, menu_name, price, cogs
+    from filtered
+    order by order_id, menu_id, effective_date asc
 )
 
-SELECT o.order_id, o.sales_date, o.menu_id, lp.menu_name, o.quantity, lp.price, lp.cogs
-FROM {{ source('staging', 'stg_orders') }} AS o
-LEFT JOIN latest_prices lp ON o.order_id = lp.order_id AND o.menu_id = lp.menu_id
+select o.order_id, o.sales_date, o.menu_id, lp.menu_name, o.quantity, lp.price, lp.cogs, o.created_at, o.updated_at
+from {{ source('staging', 'stg_orders') }} as o
+left join latest_prices lp on o.order_id = lp.order_id and o.menu_id = lp.menu_id
+
+where 1=1
+{{ incremental_filter('created_at') }}

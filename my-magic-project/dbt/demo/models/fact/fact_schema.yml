@@ -8,10 +8,16 @@ models:
       test:
       - not_null
       - unique
+        
 
   - name: fact_product_sales
-    descrition: "All about sales"
+    description: "aggregation for sales from order_details disc"
     columns:
-    - name: order_id
-      test:
-      - not_null
+      - name: sales_date
+        description: "order_id from int_order_details"
+        tests:
+          - not_null
+      - name: order_id
+        description: "menu_id from int_order_details"
+        tests:
+          - not_null

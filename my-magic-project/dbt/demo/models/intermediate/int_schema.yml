@@ -11,19 +11,30 @@ sources:
 
 models:
   - name: int_orders_details
-    description: "A starter dbt model"
+    description: "Model incremental untuk orders dan menu"
     columns:
       - name: order_id
-        description: "merge beetwenmerge between orders and menu"
-        data_tests:
+        description: "ID pesanan dari tabel orders"
+        tests:
           - not_null
+      - name: menu_id
+        description: "ID menu dari tabel menu"
+        tests:
+          - not_null
+      - name: order_id_menu_id_unique
+        description: "Pengujian keunikan untuk kombinasi order_id dan menu_id"
+        tests:
+          - unique_combination:
+              combination:
+                - order_id
+                - menu_id
 
   - name: int_orders_promotions
     description: "A starter dbt model"
     columns:
       - name: order_id
-        description: "merge between orders and promotions"
-        data_tests:
+        description: "id pesanan dari tabel orders"
+        tests:
           - not_null
           - unique
 
@@ -31,7 +42,20 @@ models:
     description: "A starter dbt model"
     columns:
       - name: order_id
-        description: "merge between orders and promotions and menu"
-        data_tests:
+        description: "order_id from int_order_details"
+        tests:
           - not_null
+      - name: menu_id
+        description: "menu_id from int_order_details"
+        tests:
+          - not_null
+      - name: order_id_menu_id_unique
+        description: "Pengujian keunikan untuk kombinasi order_id dan menu_id"
+        tests:
+          - unique_combination:
+              combination:
+                - order_id
+                - menu_id
+
+
 
