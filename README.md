@@ -1,5 +1,4 @@
 # mage-project-etl
-This project is a test project given by PT Modular Kuliner Indonesia (hangry!) during the recruitment process. This project uses mage.ai as orchestration.
 
 ## Problem Statement
 This project is designed to provide valuable sales insights that drive business growth and progress. I extract data from Google Spreadsheet and perform ETL (Extract, Transform, Load) operations using Mage. The transformed data is then exported to PostgreSQL, allowing for advanced analysis and visualization in Google Looker Studio. Through this streamlined process, I aim to uncover actionable insights that can significantly impact business strategies.
